@@ -18,6 +18,8 @@ LIB_DEPENDS=	libltdl.so:devel/libltdl \
 		libgdbm.so:databases/gdbm \
 		libintl.so:devel/gettext-runtime
 
+BUILD_DEPENDS=	cproto:devel/cproto
+
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--localstatedir=/var --with-install-suffix=tinymush \
 		--without-included-ltdl \
