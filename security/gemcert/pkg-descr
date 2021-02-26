@@ -1,0 +1,11 @@
+A simple tool for creating self-signed certs for use in Geminispace.
+
+Gemcert is designed to be a less overwhelming alternative to the openssl
+command line tool, especially for people who don't like blindly copying and
+pasting long, opaque commands without understanding them but also feel like
+they shouldn't need to wade through multiple long man pages just to make a
+self-signed certificate. It does just what is needed for typical Gemini server
+or client certificates with sensible defaults and a handful of straightforward
+options for extra control.
+
+WWW: https://tildegit.org/solderpunk/gemcert
