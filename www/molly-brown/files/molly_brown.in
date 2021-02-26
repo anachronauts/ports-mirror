@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# PROVIDE: molly_brown
+# REQUIRE: DAEMON networking
+# KEYWORD:
+
+
+. /etc/rc.subr
+
+name=molly_brown
+rcvar=molly_brown_enable
+molly_brown_command="%%PREFIX%%/bin/molly-brown"
+pidfile="/var/run/${name}.pid"
+command="/usr/sbin/daemon"
+command_args="-P ${pidfile} -c -f -r -u gemini ${molly_brown_command}"
+load_rc_config $name
+: ${molly_brown_enable:=no}
+
+run_rc_command "$1"

@@ -1,0 +1,9 @@
+The Unsinkable Molly Brown is a full-featured Gemini server implemented in Go.
+
+Molly Brown is intended to be a full-featured Gemini server which is suitable
+for use in pubnix or similar shared-hosting environments, where users can
+upload their content but do not have access to the main configuration file (of
+course, it is also perfectly suitable for single user environments, but its
+multi-user supports sets it apart from many other Gemini servers).
+
+WWW: https://tildegit.org/solderpunk/molly-brown
