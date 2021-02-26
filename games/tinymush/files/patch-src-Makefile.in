@@ -1,0 +1,51 @@
+--- src/Makefile.in.orig	2021-02-26 02:07:35.011442000 -0500
++++ src/Makefile.in	2021-02-26 02:10:27.068306000 -0500
+@@ -1176,31 +1176,31 @@
+ 	printf "\n\n#endif                          /* __TINYMUSHAPI_H */\n" >> tinymushapi.h
+ 
+ install-exec-local:
+-	$(mkinstalldirs) @prefix@
+-	$(mkinstalldirs) @libexecdir@/@with_install_suffix@
+-	$(install_sh_SCRIPT) $(SCRIPT_SRC) @libexecdir@/@with_install_suffix@
+-	$(install_sh_SCRIPT) $(SCRIPT_BUILD) @libexecdir@/@with_install_suffix@
+-	$(install_sh_DATA) $(SCRIPT_DAT) @libexecdir@/@with_install_suffix@
++	$(mkinstalldirs) $(DESTDIR)@prefix@
++	$(mkinstalldirs) $(DESTDIR)@libexecdir@/@with_install_suffix@
++	$(install_sh_SCRIPT) $(SCRIPT_SRC) $(DESTDIR)@libexecdir@/@with_install_suffix@
++	$(install_sh_SCRIPT) $(SCRIPT_BUILD) $(DESTDIR)@libexecdir@/@with_install_suffix@
++	$(install_sh_DATA) $(SCRIPT_DAT) $(DESTDIR)@libexecdir@/@with_install_suffix@
+ 
+ install-exec-hook:
+-	cd @bindir@ && $(LN_S) -f netmush dbconvert && $(LN_S) -f netmush recover
++	cd $(DESTDIR)@bindir@ && $(LN_S) -f netmush dbconvert && $(LN_S) -f netmush recover
+ 
+ install-data-local:
+-	$(mkinstalldirs) @sysconfdir@
+-	$(mkinstalldirs) @datarootdir@
+-	$(mkinstalldirs) @localstatedir@/run/@with_install_suffix@
+-	$(mkinstalldirs) @localstatedir@/db/@with_install_suffix@
+-	$(mkinstalldirs) @localstatedir@/backups/@with_install_suffix@
+-	$(mkinstalldirs) @localstatedir@/log/@with_install_suffix@
+-	$(install_sh_DATA) $(SHARE_SRC) @datarootdir@
+-	$(install_sh_DATA) $(ETC_SRC) @sysconfdir@
+-	$(install_sh_DATA) $(ETC_BUILD) @sysconfdir@
++	$(mkinstalldirs) $(DESTDIR)@sysconfdir@
++	$(mkinstalldirs) $(DESTDIR)@datarootdir@
++	$(mkinstalldirs) $(DESTDIR)@localstatedir@/run/@with_install_suffix@
++	$(mkinstalldirs) $(DESTDIR)@localstatedir@/db/@with_install_suffix@
++	$(mkinstalldirs) $(DESTDIR)@localstatedir@/backups/@with_install_suffix@
++	$(mkinstalldirs) $(DESTDIR)@localstatedir@/log/@with_install_suffix@
++	$(install_sh_DATA) $(SHARE_SRC) $(DESTDIR)@datarootdir@
++	$(install_sh_DATA) $(ETC_SRC) $(DESTDIR)@sysconfdir@
++	$(install_sh_DATA) $(ETC_BUILD) $(DESTDIR)@sysconfdir@
+ 	@for i in $(ETC_BUILD); \
+ 	do \
+ 		SKEL_CONF="`$(with_basename_prog) $$i`"; \
+-		USER_CONF="@sysconfdir@/`echo $$i | $(with_basename_prog) $$($(SED) s/".example"//)`"; \
++		USER_CONF="$(DESTDIR)@sysconfdir@/`echo $$i | $(with_basename_prog) $$($(SED) s/".example"//)`"; \
+ 		if [ ! -f "$$USER_CONF" ]; then \
+-			cp @sysconfdir@/$$SKEL_CONF $$USER_CONF; \
++			cp $(DESTDIR)@sysconfdir@/$$SKEL_CONF $$USER_CONF; \
+ 			echo "No $$USER_CONF found. Default configuration file created."; \
+ 		fi; \
+ 	done

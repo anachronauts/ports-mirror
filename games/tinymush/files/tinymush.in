@@ -1,0 +1,17 @@
+#!/bin/sh
+#
+# PROVIDE: tinymush
+# REQUIRE: DAEMON networking
+# KEYWORD: shutdown
+
+
+. /etc/rc.subr
+
+name=tinymush
+rcvar=tinymush_enable
+pidfile="/var/run/tinymush/netmush.pid"
+command="%%PREFIX%%/bin/netmush"
+load_rc_config $name
+: ${tinymush_enable:=no}
+
+run_rc_command "$1"

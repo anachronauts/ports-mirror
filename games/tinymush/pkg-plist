@@ -1,0 +1,50 @@
+bin/dbconvert
+bin/netmush
+bin/recover
+@sample etc/tinymush/alias.conf.sample
+@sample etc/tinymush/compat.conf.sample
+@sample etc/tinymush/netmush.conf.sample
+include/tinymush/tinymushapi.h
+lib/tinymush/comsys.la
+lib/tinymush/comsys.so
+lib/tinymush/mail.la
+lib/tinymush/mail.so
+libexec/tinymush/Archive
+libexec/tinymush/Backup
+libexec/tinymush/Index
+libexec/tinymush/Logclean
+libexec/tinymush/Reconstruct
+libexec/tinymush/ReportCrash
+libexec/tinymush/Restore
+libexec/tinymush/Startmush
+libexec/tinymush/check_paths
+libexec/tinymush/convert_comsys.pl
+libexec/tinymush/cvt22.pl
+libexec/tinymush/cvt22.sed
+libexec/tinymush/cvtmux.pl
+libexec/tinymush/cvtmux.sed
+libexec/tinymush/mtrace.awk
+libexec/tinymush/mush.config
+share/tinymush/badsite.txt
+share/tinymush/connect.txt
+share/tinymush/create_reg.txt
+share/tinymush/down.txt
+share/tinymush/full.txt
+share/tinymush/guest.txt
+share/tinymush/help.txt
+share/tinymush/htmlconn.txt
+share/tinymush/motd.txt
+share/tinymush/mushman.txt
+share/tinymush/news.txt
+share/tinymush/newuser.txt
+share/tinymush/plushelp.txt
+share/tinymush/qhelp.txt
+share/tinymush/quit.txt
+share/tinymush/register.txt
+share/tinymush/wizhelp.txt
+share/tinymush/wizmotd.txt
+share/tinymush/wiznews.txt
+@dir /var/backups/tinymush
+@dir /var/db/tinymush
+@dir /var/log/tinymush
+@dir /var/run/tinymush
