@@ -6,7 +6,6 @@ lib/libpoke.so
 lib/libpoke.so.0
 lib/libpoke.so.0.0.0
 man/man1/poke.1.gz
-share/info/dir
 share/info/poke.info
 share/info/poke.info-1
 share/info/poke.info-2
