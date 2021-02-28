@@ -2,7 +2,7 @@
 
 PORTNAME=	molly-brown
 DISTVERSION=	g20210124
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	www
 
 MAINTAINER=	sage@anachronauts.club
