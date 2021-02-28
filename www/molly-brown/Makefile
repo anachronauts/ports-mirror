@@ -2,7 +2,7 @@
 
 PORTNAME=	molly-brown
 DISTVERSION=	g20210124
-PORTREVISION=	0
+PORTREVISION=	1
 CATEGORIES=	www
 
 MAINTAINER=	sage@anachronauts.club
@@ -28,5 +28,8 @@ USE_RC_SUBR=	molly_brown
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|/etc/molly.conf|${PREFIX}/etc/molly.conf|g' ${WRKSRC}/main.go
+
+post-install:
+	${INSTALL_DATA} ${WRKSRC}/example.conf ${STAGEDIR}${PREFIX}/etc/molly.conf.sample
 
 .include <bsd.port.mk>
