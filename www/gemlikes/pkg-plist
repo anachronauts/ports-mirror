@@ -1,0 +1,5 @@
+bin/gemlikes-install
+@sample %%WWWDIR%%/gemlikes.toml.sample
+%%WWWDIR%%/add-comment
+%%WWWDIR%%/like
+%%WWWDIR%%/view

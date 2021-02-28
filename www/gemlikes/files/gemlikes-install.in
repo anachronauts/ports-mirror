@@ -1,0 +1,26 @@
+#!/bin/sh
+
+set -eu
+
+# Create directories
+mkdir -p "$HOME/.local/share"
+chmod o+x "$HOME" "$HOME/.local" "$HOME/.local/share"
+install -d -m775 -ggemini "$HOME/.local/share/gemlikes"
+cgi_dir="$HOME/public_gemini/cgi-bin/gemlikes"
+mkdir -p "$cgi_dir"
+
+# Add scripts for binaries
+echo -e "#!/bin/sh\nGEMLIKES_CONFIG_DIR=\"$cgi_dir\" exec %%WWWDIR%%/add-comment \"\$@\"" > "$cgi_dir/add-comment"
+chmod +x "$cgi_dir/add-comment"
+echo -e "#!/bin/sh\nGEMLIKES_CONFIG_DIR=\"$cgi_dir\" exec %%WWWDIR%%/like \"\$@\"" > "$cgi_dir/like"
+chmod +x "$cgi_dir/like"
+echo -e "#!/bin/sh\nGEMLIKES_CONFIG_DIR=\"$cgi_dir\" exec %%WWWDIR%%/view \"\$@\"" > "$cgi_dir/view"
+chmod +x "$cgi_dir/view"
+
+# Install config if needed
+config_src="%%WWWDIR%%/gemlikes.toml"
+config_dst="$cgi_dir/gemlikes.toml"
+if [ ! -e "$config_dst" ]; then
+	cp -n "$config_src" "$config_dst"
+	sed -i '' -e "s/username/$USER/g" "$config_dst"
+fi

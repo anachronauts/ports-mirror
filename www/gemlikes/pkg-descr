@@ -1,0 +1,4 @@
+A liking and comment system for the Gemini protocol, especially for gemlogs! It
+works using CGI, so there's no additional server to run.
+
+WWW: https://github.com/makeworld-the-better-one/gemlikes
