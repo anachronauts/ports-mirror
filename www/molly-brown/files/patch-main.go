@@ -1,5 +1,5 @@
 --- main.go.orig	2021-02-28 11:48:04.110000000 -0500
-+++ main.go	2021-02-28 11:49:15.280000000 -0500
++++ main.go	2021-02-28 13:20:55.700000000 -0500
 @@ -2,10 +2,13 @@
  
  import (
@@ -34,7 +34,7 @@
  	// Create TLS listener
  	listener, err := tls.Listen("tcp", ":"+strconv.Itoa(config.Port), tlscfg)
  	if err != nil {
-@@ -90,3 +106,33 @@
+@@ -90,3 +106,47 @@
  	}
  
  }
@@ -49,7 +49,21 @@
 +		return false, err
 +	}
 +
++	gs, err := u.GroupIds()
++	if err != nil {
++		return false, err
++	}
++	var gids []int
++	for _, g := range gs {
++		gid, err := strconv.Atoi(g)
++		if err != nil {
++			return false, err
++		}
++		gids = append(gids, gid)
++	}
 +	if gid, err := strconv.Atoi(u.Gid); err != nil {
++		return false, err
++	} else if err := syscall.Setgroups(gids); err != nil {
 +		return false, err
 +	} else if err := syscall.Setgid(gid); err != nil {
 +		return false, err
