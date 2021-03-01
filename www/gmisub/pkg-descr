@@ -1,0 +1,5 @@
+gmisub is an aggregator for Gemtext feeds. It takes a list of Gemini URLs and
+extracts the feed entries. These are output to a file in order of date in a
+similar style to CAPCOM.
+
+WWW: https://git.sr.ht/~callum/gmisub

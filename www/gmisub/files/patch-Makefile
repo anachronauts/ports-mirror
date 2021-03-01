@@ -1,0 +1,26 @@
+--- Makefile.orig	2021-02-20 10:44:53.000000000 -0500
++++ Makefile	2021-02-28 23:33:30.363350000 -0500
+@@ -5,10 +5,10 @@
+ 
+ SCDOC=scdoc
+ 
+-CPPFLAGS=-Iinclude -MMD -MP
+-CFLAGS=-Wall
+-LDFLAGS=-Llib
+-LDLIBS=-lssl -lcrypto -lgmni
++CPPFLAGS+=-I/usr/local/include -MMD -MP
++CFLAGS+=-Wall
++LDFLAGS+=-L/usr/local/lib
++LDLIBS+=-lssl -lcrypto -lgmni
+ 
+ BUILDDIR=build
+ 
+@@ -31,7 +31,7 @@
+ 
+ install: all
+ 	mkdir -p $(BINDIR) $(MANDIR)/man1
+-	install -Dm755 $(BUILDDIR)/gmisub $(BINDIR)/gmisub
++	install -s -Dm755 $(BUILDDIR)/gmisub $(BINDIR)/gmisub
+	install -Dm644 $(BUILDDIR)/gmisub.1 $(MANDIR)/man1/gmisub.1
+ 
+ .PHONY: all clean
