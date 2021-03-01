@@ -1,0 +1,6 @@
+This is a Gemini client. Included are:
+
+- A CLI utility (like curl): gmni
+- A line-mode browser: gmnlm
+
+WWW: https://git.sr.ht/~sircmpwn/gmni

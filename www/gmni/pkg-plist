@@ -1,0 +1,10 @@
+bin/gmni
+bin/gmnlm
+include/gmni/gmni.h
+include/gmni/tofu.h
+include/gmni/url.h
+lib/libgmni.a
+lib/libgmni.so
+libdata/pkgconfig/libgmni.pc
+man/man1/gmni.1.gz
+man/man1/gmnlm.1.gz
