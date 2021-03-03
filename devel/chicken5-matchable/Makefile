@@ -14,18 +14,15 @@ RUN_DEPENDS=	chicken5:lang/chicken5
 BUILD_DEPENDS=	chicken-install5:lang/chicken5
 
 CSC_OPTIONS=	-v -strip
-C5_REPO:=	${:!chicken-install5 -repository!}
-CHICKEN_INSTALL_REPOSITORY=	${STAGEDIR}${C5_REPO}
+C5_REPO=	${:!chicken-install5 -repository!}
 
 do-build:
 	cd ${WRKSRC} && chicken-install5 \
 		-v -no-install -no-install-dependencies
 
 do-install:
-	cd ${WRKSRC} && chicken-install5 -v -no-install-dependencies
+	cd ${WRKSRC} && DESTDIR=${STAGEDIR} chicken-install5 \
+		-v -no-install-dependencies
 
-
-
-
-.export CSC_OPTIONS CHICKEN_INSTALL_REPOSITORY
+.export CSC_OPTIONS
 .include <bsd.port.mk>

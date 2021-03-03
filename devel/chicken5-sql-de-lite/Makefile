@@ -21,7 +21,7 @@ BUILD_DEPENDS=	chicken-install5:lang/chicken5 \
 		${MY_DEPENDS}
 
 CSC_OPTIONS=	-v -strip -I${PREFIX}/include -L${PREFIX}/lib
-C5_REPO:=	${:!chicken-install5 -repository!}
+C5_REPO=	${:!chicken-install5 -repository!}
 
 do-build:
 	cd ${WRKSRC} && chicken-install5 \
@@ -33,6 +33,5 @@ do-install:
 		-D sql-de-lite-external-lib \
 		-v -no-install-dependencies
 
-
-.export CSC_OPTIONS CHICKEN_INSTALL_REPOSITORY
+.export CSC_OPTIONS
 .include <bsd.port.mk>
