@@ -10,14 +10,13 @@ PKGNAMEPREFIX=	chicken5-
 MAINTAINER=	sage@anachronauts.club
 COMMENT=	SRFI 13 (string library)
 
-MY_DEPENDS=	${C5_REPO}/srfi-14.egg-info:devel/chicken5-srfi-14
+MY_DEPENDS=	${PREFIX}/lib/chicken5/11/srfi-14.egg-info:devel/chicken5-srfi-14
 RUN_DEPENDS=	chicken5:lang/chicken5 \
 		${MY_DEPENDS}
 BUILD_DEPENDS=	chicken-install5:lang/chicken5 \
 		${MY_DEPENDS}
 
 CSC_OPTIONS=	-v -strip
-C5_REPO=	${:!chicken-install5 -repository!}
 
 do-build:
 	cd ${WRKSRC} && chicken-install5 \

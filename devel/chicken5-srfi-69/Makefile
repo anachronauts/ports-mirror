@@ -14,7 +14,6 @@ RUN_DEPENDS=	chicken5:lang/chicken5
 BUILD_DEPENDS=	chicken-install5:lang/chicken5
 
 CSC_OPTIONS=	-v -strip
-C5_REPO=	${:!chicken-install5 -repository!}
 
 do-build:
 	cd ${WRKSRC} && chicken-install5 \

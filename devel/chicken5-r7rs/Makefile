@@ -10,16 +10,15 @@ PKGNAMEPREFIX=	chicken5-
 MAINTAINER=	sage@anachronauts.club
 COMMENT=	Support for most of the R7RS Scheme language
 
-MY_DEPENDS=	${C5_REPO}/matchable.egg-info:devel/chicken5-matchable \
-		${C5_REPO}/srfi-1.egg-info:devel/chicken5-srfi-1 \
-		${C5_REPO}/srfi-13.egg-info:devel/chicken5-srfi-13
+MY_DEPENDS=	${PREFIX}/lib/chicken5/11/matchable.egg-info:devel/chicken5-matchable \
+		${PREFIX}/lib/chicken5/11/srfi-1.egg-info:devel/chicken5-srfi-1 \
+		${PREFIX}/lib/chicken5/11/srfi-13.egg-info:devel/chicken5-srfi-13
 RUN_DEPENDS=	chicken5:lang/chicken5 \
 		${MY_DEPENDS}
 BUILD_DEPENDS=	chicken-install5:lang/chicken5 \
 		${MY_DEPENDS}
 
 CSC_OPTIONS=	-v -strip
-C5_REPO=	${:!chicken-install5 -repository!}
 
 do-build:
 	cd ${WRKSRC} && chicken-install5 \
