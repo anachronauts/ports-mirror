@@ -1,0 +1,11 @@
+sql-de-lite is an interface to SQLite 3 for CHICKEN.
+
+sql-de-lite has the following features:
+
+- Prepared statement cache
+- High-level and low-level API
+- User-defined scalar and aggregate functions
+- Focus on ensuring database is never accidentally left locked
+- Rollbacks and database close permitted even if statements are open
+
+WWW: http://wiki.call-cc.org/eggref/5/sql-de-lite

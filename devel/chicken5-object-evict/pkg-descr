@@ -1,0 +1,5 @@
+This extension allows one to copy arbitrary Scheme data into unmanaged memory,
+not subject to garbage collection (called /eviction/). This may be useful for
+"pinning" down data to be used by foreign code.
+
+WWW: http://wiki.call-cc.org/eggref/5/object-evict

@@ -1,0 +1,12 @@
+bin/chicken-sqlite3
+lib/chicken5/11/sql-de-lite-cache.import.so
+lib/chicken5/11/sql-de-lite-cache.link
+lib/chicken5/11/sql-de-lite-cache.o
+lib/chicken5/11/sql-de-lite-cache.so
+lib/chicken5/11/sql-de-lite-cache.types
+lib/chicken5/11/sql-de-lite.egg-info
+lib/chicken5/11/sql-de-lite.import.so
+lib/chicken5/11/sql-de-lite.link
+lib/chicken5/11/sql-de-lite.o
+lib/chicken5/11/sql-de-lite.so
+lib/chicken5/11/sql-de-lite.types
