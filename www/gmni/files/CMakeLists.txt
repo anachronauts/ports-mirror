@@ -2,9 +2,9 @@ cmake_minimum_required (VERSION 3.9)
 project (gmni VERSION 0.0.0 LANGUAGES C)
 
 include (GNUInstallDirs)
-find_package (OpenSSL REQUIRED)
 
 set (libgmni_src
+	src/certs.c
 	src/client.c
 	src/escape.c
 	src/tofu.c
@@ -15,7 +15,7 @@ set (libgmni_src
 
 add_library (libgmni_obj OBJECT ${libgmni_src})
 set_target_properties (libgmni_obj PROPERTIES POSITION_INDEPENDENT_CODE ON)
-target_include_directories (libgmni_obj PRIVATE include)
+target_include_directories (libgmni_obj PRIVATE include /usr/local/include)
 
 add_library (libgmni_shared SHARED $<TARGET_OBJECTS:libgmni_obj>)
 set_target_properties (libgmni_shared PROPERTIES OUTPUT_NAME "gmni")
@@ -37,14 +37,16 @@ configure_file (libgmni.pc.in libgmni.pc @ONLY)
 find_program (SCDOC scdoc)
 
 add_executable (gmni src/gmni.c)
-target_link_libraries (gmni PUBLIC libgmni_shared OpenSSL::SSL)
+target_include_directories (gmni PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include /usr/local/include)
+target_link_libraries (gmni PUBLIC libgmni_shared -L/usr/local/lib bearssl)
 add_custom_command (
 	TARGET gmni
 	COMMAND ${SCDOC} < ${CMAKE_SOURCE_DIR}/doc/gmni.scd | gzip > ${CMAKE_BINARY_DIR}/gmni.1.gz
 	)
 
 add_executable (gmnlm src/gmnlm.c)
-target_link_libraries (gmnlm PUBLIC libgmni_shared OpenSSL::SSL)
+target_include_directories (gmnlm PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include /usr/local/include)
+target_link_libraries (gmnlm PUBLIC libgmni_shared -L/usr/local/lib bearssl)
 add_custom_command (
 	TARGET gmnlm
 	COMMAND ${SCDOC} < ${CMAKE_SOURCE_DIR}/doc/gmnlm.scd | gzip > ${CMAKE_BINARY_DIR}/gmnlm.1.gz

@@ -1,5 +1,6 @@
 bin/gmni
 bin/gmnlm
+include/gmni/certs.h
 include/gmni/gmni.h
 include/gmni/tofu.h
 include/gmni/url.h
