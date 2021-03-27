@@ -12,7 +12,7 @@ rcvar=molly_brown_enable
 molly_brown_command="%%PREFIX%%/bin/molly-brown"
 pidfile="/var/run/${name}.pid"
 command="/usr/sbin/daemon"
-command_args="-P ${pidfile} -cf ${molly_brown_command}"
+command_args="-P ${pidfile} -rcf ${molly_brown_command}"
 load_rc_config $name
 : ${molly_brown_enable:=no}
 
