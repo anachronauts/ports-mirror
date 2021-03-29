@@ -13,6 +13,7 @@ DISTFILES=	b84a2381.tar.gz
 WRKSRC=		${WRKDIR}/${PORTNAME}-b84a2381
 
 USES=		gmake
+BUILD_DEPENDS=	scdoc:textproc/scdoc
 LIB_DEPENDS=	libgmni.so:www/gmni
 
 .include <bsd.port.mk>
