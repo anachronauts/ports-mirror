@@ -1,7 +1,5 @@
-# $FreeBSD$
-
 PORTNAME=	utf8
-DISTVERSION=	3.6.2
+DISTVERSION=	3.6.3
 PORTREVISION=	0
 CATEGORIES=	devel
 MASTER_SITES=	https://code.call-cc.org/egg-tarballs/5/${PORTNAME}/
