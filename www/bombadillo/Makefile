@@ -1,17 +1,18 @@
-# $FreeBSD$
-
 PORTNAME=	bombadillo
-DISTVERSION=	2.3.3
+DISTVERSION=	2.4.0
 CATEGORIES=	www
 MASTER_SITES=	https://tildegit.org/sloum/bombadillo/archive/
-DISTFILES=	${DISTVERSION}${EXTRACT_SUFX}
-WRKSRC=		${WRKDIR}/${PORTNAME}
+DISTNAME=	${DISTVERSION}
 
 MAINTAINER=	sage@anachronauts.club
-COMMENT=	A non-web browser
+COMMENT=	Non-web browser
+
+LICENSE=	GPLv3
 
 BUILD_DEPENDS=	go:lang/go
+
 USES=		gmake
 ALL_TARGET=	build
+WRKSRC=		${WRKDIR}/${PORTNAME}
 
 .include <bsd.port.mk>
