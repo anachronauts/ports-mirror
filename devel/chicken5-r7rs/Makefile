@@ -1,7 +1,5 @@
-# $FreeBSD$
-
 PORTNAME=	r7rs
-DISTVERSION=	1.0.3
+DISTVERSION=	1.0.5
 PORTREVISION=	0
 CATEGORIES=	devel
 MASTER_SITES=	https://code.call-cc.org/egg-tarballs/5/${PORTNAME}/
@@ -9,6 +7,8 @@ PKGNAMEPREFIX=	chicken5-
 
 MAINTAINER=	sage@anachronauts.club
 COMMENT=	Support for most of the R7RS Scheme language
+
+LICENSE=        BSD3CLAUSE
 
 MY_DEPENDS=	${PREFIX}/lib/chicken5/11/matchable.egg-info:devel/chicken5-matchable \
 		${PREFIX}/lib/chicken5/11/srfi-1.egg-info:devel/chicken5-srfi-1 \
